@@ -1,0 +1,6 @@
+[submodule "SFML"]
+	path = SFML
+	url = https://github.com/SFML/SFML.git
+[submodule "ctti"]
+	path = ctti
+	url = https://github.com/Manu343726/ctti.git
