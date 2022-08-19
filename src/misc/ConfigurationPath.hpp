@@ -54,11 +54,7 @@ namespace config
     //
     // --------------------------------------------------------------
     static const auto DOM_DEVELOPER = "developer"s;
-    //static const auto DOM_HEX_COORDS = "hex-coords";
     static const config_path DEVELOPER_MAIN_MENU = { DOM_DEVELOPER, "main-menu"s };                      // true if main menu do be displayed, otherwise directly join game
-    //static const config_path DEVELOPER_HEX_COORDS_RENDER = { DOM_DEVELOPER, DOM_HEX_COORDS, "render"s }; // true if to render the hex coords
-    //static const config_path DEVELOPER_HEX_COORDS_FONT_FILENAME = { DOM_DEVELOPER, DOM_HEX_COORDS, DOM_FONT, DOM_FILENAME };
-    //static const config_path DEVELOPER_HEX_COORDS_FONT_SIZE = { DOM_DEVELOPER, DOM_HEX_COORDS, DOM_FONT, DOM_SIZE };
 
     // --------------------------------------------------------------
     //
@@ -93,27 +89,9 @@ namespace config
 
     static const config_path KEYBOARD_REPEAT_DELAY = { DOM_KEYBOARD, "repeat-delay"s };
 
-    static const config_path KEYBOARD_UP_LEFT = { DOM_KEYBOARD, "up-left"s };
-    static const config_path KEYBOARD_UP_RIGHT = { DOM_KEYBOARD, "up-right"s };
-    static const config_path KEYBOARD_DOWN_LEFT = { DOM_KEYBOARD, "down-left"s };
-    static const config_path KEYBOARD_DOWN_RIGHT = { DOM_KEYBOARD, "down-right"s };
     static const config_path KEYBOARD_LEFT = { DOM_KEYBOARD, "left"s };
     static const config_path KEYBOARD_RIGHT = { DOM_KEYBOARD, "right"s };
 
-    static const config_path KEYBOARD_UNDO = { DOM_KEYBOARD, "undo"s };
-    static const config_path KEYBOARD_RESET = { DOM_KEYBOARD, "reset"s };
-    static const config_path KEYBOARD_TOGGLE_PHRASE_RENDERING = { DOM_KEYBOARD, "toggle-phrase-rendering"s };
-
-    static const config_path KEYBOARD_CAMERA_LEFT = { DOM_KEYBOARD, "pan-left"s };
-    static const config_path KEYBOARD_CAMERA_RIGHT = { DOM_KEYBOARD, "pan-right"s };
-    static const config_path KEYBOARD_CAMERA_UP = { DOM_KEYBOARD, "pan-up"s };
-    static const config_path KEYBOARD_CAMERA_DOWN = { DOM_KEYBOARD, "pan-down"s };
-    static const config_path KEYBOARD_CAMERA_ZOOM_IN = { DOM_KEYBOARD, "zoom-in"s };
-    static const config_path KEYBOARD_CAMERA_ZOOM_OUT = { DOM_KEYBOARD, "zoom-out"s };
-
-    static const config_path MOUSE_CAMERA_INVERT_PAN_HORZ = { DOM_MOUSE, "invert-pan-horz"s };
-    static const config_path MOUSE_CAMERA_INVERT_PAN_VERT = { DOM_MOUSE, "invert-pan-vert"s };
-    static const config_path MOUSE_CAMERA_INVERT_ZOOM = { DOM_MOUSE, "invert-zoom"s };
 
     // --------------------------------------------------------------
     //

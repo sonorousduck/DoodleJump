@@ -22,6 +22,13 @@ namespace components
                 m_sound.setBuffer(*Content::get<sf::SoundBuffer>(audioKey));
             }
         }
+
+        auto getKey() { return m_audioKey; }
+
+        bool operator==(Audio& rhs)
+        {
+            return m_audioKey == rhs.m_audioKey;
+        }
     
         private:
           std::string m_audioKey;

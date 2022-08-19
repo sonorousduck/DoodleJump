@@ -151,8 +151,21 @@ set(ASSETS_IMAGE_DIR ${ASSETS_DIR}/images)
 set(ASSETS_AUDIO_DIR ${ASSETS_DIR}/audio)
 set(ASSETS_MUSIC_DIR ${ASSETS_DIR}/music)
 
+#
+# Copy the default configuration & scores files into the build folder so they are
+# available at runtime
+# 
+set(DEFAULT_CONFIG_FILE ${CMAKE_CURRENT_SOURCE_DIR}/client.settings.json)
+set(BUILD_CONFIG_FILE ${CMAKE_CURRENT_BINARY_DIR}/client.settings.json)
+if (NOT EXISTS ${BUILD_CONFIG_FILE} OR ${DEFAULT_CONFIG_FILE} IS_NEWER_THAN ${BUILD_CONFIG_FILE})
+   configure_file(${DEFAULT_CONFIG_FILE} ${BUILD_CONFIG_FILE} COPYONLY)
+endif()
 
-
+set(DEFAULT_SCORES_FILE ${CMAKE_CURRENT_SOURCE_DIR}/client.scores.json)
+set(BUILD_SCORES_FILE ${CMAKE_CURRENT_BINARY_DIR}/client.scores.json)
+if (NOT EXISTS ${BUILD_SCORES_FILE} OR ${DEFAULT_SCORES_FILE} IS_NEWER_THAN ${BUILD_SCORES_FILE})
+   configure_file(${DEFAULT_SCORES_FILE} ${BUILD_SCORES_FILE} COPYONLY)
+endif()
 
 
 #

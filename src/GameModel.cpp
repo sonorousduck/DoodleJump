@@ -8,6 +8,10 @@
 #include <iostream>
 #include <memory>
 #include <tuple>
+#include "misc/Configuration.hpp"
+#include "misc/ConfigurationPath.hpp"
+#include "misc/Content.hpp"
+#include "misc/ContentKey.hpp"
 
 /// <summary>
 /// Sets up all systems and any objects that should be added at the beginning
@@ -29,6 +33,15 @@ bool GameModel::initialize(sf::Vector2f viewSize)
 
     // Create and add entities
     addEntity(entities::createLocalPlayer("assets/images/crow.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 0.05f, m_textures));
+
+        if (Configuration::get<bool>(config::PLAY_BACKGROUND_MUSIC) && Content::has<sf::Music>(content::KEY_MUSIC_GENERIC))
+    {
+        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->stop();
+        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->setVolume(15);
+        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->setLoop(true);
+        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->play();
+    }
+
 
     return true;
 }
