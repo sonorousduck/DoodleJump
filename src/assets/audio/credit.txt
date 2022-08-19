@@ -1,0 +1,4 @@
+fire.ogg
+	Source: https://opengameart.org/content/63-digital-sound-effects-lasers-phasers-space-etc
+	Credit: Kenny (www.kenney.nl)
+	License: https://creativecommons.org/publicdomain/zero/1.0/

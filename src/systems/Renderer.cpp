@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 namespace systems
 {
@@ -26,7 +27,8 @@ namespace systems
             auto sprite = entity->getComponent<components::Sprite>();
 
             sprite->get()->setPosition(position->get());
-            sprite->get()->setRotation(sf::degrees(position->getRotation()));
+            
+            sprite->get()->setRotation(position->getRotation());
 
             renderTarget->draw(*sprite->get());
             
