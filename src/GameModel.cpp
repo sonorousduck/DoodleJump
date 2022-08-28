@@ -21,6 +21,8 @@
 bool GameModel::initialize(sf::Vector2f viewSize)
 {
     // Initialize systems
+
+    // TODO: Should read from config file for key remappings
     auto inputMapping = {
         std::make_tuple(components::Input::Type::Up, sf::Keyboard::W),
         std::make_tuple(components::Input::Type::Down, sf::Keyboard::S),
@@ -34,13 +36,7 @@ bool GameModel::initialize(sf::Vector2f viewSize)
     // Create and add entities
     addEntity(entities::createLocalPlayer("assets/images/crow.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 0.05f, m_textures));
 
-        if (Configuration::get<bool>(config::PLAY_BACKGROUND_MUSIC) && Content::has<sf::Music>(content::KEY_MUSIC_GENERIC))
-    {
-        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->stop();
-        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->setVolume(15);
-        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->setLoop(true);
-        Content::get<sf::Music>(content::KEY_MUSIC_GENERIC)->play();
-    }
+
 
 
     return true;

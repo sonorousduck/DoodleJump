@@ -8,23 +8,23 @@ namespace content
 	/*
 	FONTS
 	*/
-	const auto KEY_FONT_GENERIC = "font/Shojumaru-Regular"s;
+	static const auto KEY_FONT_GENERIC = "font/Shojumaru-Regular"s;
 
 	/*
 	Images
 	*/
-    const auto KEY_IMAGE_CROW = "images/crow"s;
+    static const auto KEY_IMAGE_CROW = "images/crow"s;
 
 
 	/*
 	Music
 	*/
-    const auto KEY_MUSIC_GENERIC = "music/background-music-1"s;
+    static const auto KEY_MUSIC_GENERIC = "music/background"s;
 
     /*
-    Sound Effects
+    Sound Effects 
     */
 
-    const auto KEY_AUDIO_GENERIC = "audio/fire"s;
+    static const auto KEY_AUDIO_GENERIC = "audio/burn"s;
 }
 

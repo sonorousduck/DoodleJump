@@ -61,6 +61,7 @@ set(MISC_HEADERS
 	misc/ContentKey.hpp
 	misc/math.hpp
 	misc/misc.hpp
+	misc/SoundPlayer.hpp
 )
 
 set(MISC_SOURCES
@@ -68,6 +69,7 @@ set(MISC_SOURCES
 	misc/Content.cpp
 	misc/math.cpp
 	misc/misc.cpp
+	misc/SoundPlayer.cpp
 )
 
 #
@@ -163,6 +165,13 @@ endif()
 
 set(DEFAULT_SCORES_FILE ${CMAKE_CURRENT_SOURCE_DIR}/client.scores.json)
 set(BUILD_SCORES_FILE ${CMAKE_CURRENT_BINARY_DIR}/client.scores.json)
+if (NOT EXISTS ${BUILD_SCORES_FILE} OR ${DEFAULT_SCORES_FILE} IS_NEWER_THAN ${BUILD_SCORES_FILE})
+   configure_file(${DEFAULT_SCORES_FILE} ${BUILD_SCORES_FILE} COPYONLY)
+endif()
+
+
+set(DEFAULT_DEVELOPER_FILE ${CMAKE_CURRENT_SOURCE_DIR}/client.developer.json)
+set(DEFAULT_DEVELOPER_FILE ${CMAKE_CURRENT_BINARY_DIR}/client.developer.json)
 if (NOT EXISTS ${BUILD_SCORES_FILE} OR ${DEFAULT_SCORES_FILE} IS_NEWER_THAN ${BUILD_SCORES_FILE})
    configure_file(${DEFAULT_SCORES_FILE} ${BUILD_SCORES_FILE} COPYONLY)
 endif()

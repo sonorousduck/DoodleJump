@@ -11,22 +11,9 @@
     },
     "keyboard": {
         "repeat-delay": 150,
-        "up-left": "q",
-        "up-right": "e",
         "left": "a",
         "right": "d",
-        "down-left": "z",
-        "down-right": "c",
-        "pan-left": "left",
-        "pan-right": "right",
-        "pan-up": "up",
-        "pan-down": "down",
-        "zoom-in": "page-up",
-        "zoom-out": "page-down",
-        "toggle-phrase": "d",
-        "undo": "u",
-        "reset": "r",
-        "toggle-phrase-rendering": "s"
+        "reset": "r"
     },
     "mouse": {
         "invert-pan-horz": false,
