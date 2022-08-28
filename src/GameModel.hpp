@@ -9,6 +9,7 @@
 #include <chrono>
 #include <memory>
 #include <unordered_set>
+#include <systems/FontRenderer.hpp>
 
 class GameModel
 {
@@ -26,6 +27,7 @@ class GameModel
 
 
     // Systems
+    std::unique_ptr<systems::FontRenderer> m_fontRenderer;
     std::unique_ptr<systems::KeyboardInput> m_systemKeyboardInput;
     std::unique_ptr<systems::Renderer> m_systemRender;
 

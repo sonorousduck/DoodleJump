@@ -12,6 +12,7 @@
 #include "misc/ConfigurationPath.hpp"
 #include "misc/Content.hpp"
 #include "misc/ContentKey.hpp"
+#include <entities/TestEntity.hpp>
 
 /// <summary>
 /// Sets up all systems and any objects that should be added at the beginning
@@ -32,11 +33,11 @@ bool GameModel::initialize(sf::Vector2f viewSize)
     m_systemKeyboardInput = std::make_unique<systems::KeyboardInput>(inputMapping);
 
     m_systemRender = std::make_unique<systems::Renderer>();
+    m_fontRenderer = std::make_unique<systems::FontRenderer>();
 
     // Create and add entities
     addEntity(entities::createLocalPlayer("assets/images/crow.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 0.05f, m_textures));
-
-
+    addEntity(entities::createTestEntity("YEEET", sf::Color::Red, sf::Color::Black, 10, sf::Vector2f(-1.0f, 1.0f), 0.05f));
 
 
     return true;
@@ -66,6 +67,8 @@ void GameModel::update(const std::chrono::milliseconds elapsedTime, std::shared_
     // Render
     m_systemKeyboardInput->update(elapsedTime);
     m_systemRender->update(elapsedTime, renderTarget);
+    m_fontRenderer->update(elapsedTime);
+
 }
 
 /// <summary>
@@ -82,6 +85,7 @@ void GameModel::addEntity(std::shared_ptr<entities::Entity> entity)
     // Add to all systems
     m_systemKeyboardInput->addEntity(entity);
     m_systemRender->addEntity(entity);
+    m_fontRenderer->addEntity(entity);
 }
 
 /// <summary>
@@ -95,4 +99,5 @@ void GameModel::removeEntity(decltype(entities::Entity().getId()) entityId)
     // Remove from all systems
     m_systemKeyboardInput->removeEntity(entityId);
     m_systemRender->removeEntity(entityId);
+    m_fontRenderer->removeEntity(entityId);
 }

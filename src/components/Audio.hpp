@@ -1,6 +1,6 @@
 #pragma once
 
-#include "components/Component.hpp"
+#include "Component.hpp"
 
 #include "misc/ContentKey.hpp"
 #include <SFML/Audio/Sound.hpp>

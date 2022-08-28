@@ -20,7 +20,7 @@ MusicPlayer& MusicPlayer::instance()
 // --------------------------------------------------------------
 void MusicPlayer::initialize()
 {
-    m_thread = std::make_unique<std::thread>(&MusicPlayer::run, this);
+    //m_thread = std::make_unique<std::thread>(&MusicPlayer::run, this);
 
     // Create a queue of 10 sf::Music objects that we'll cycle through
     // Sound we had a queue of 100, but music will be MUCH less rare, if

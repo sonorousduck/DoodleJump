@@ -17,10 +17,12 @@ set(HEADER_FILES
 set(ENTITY_HEADERS
 	entities/Entity.hpp
 	entities/LocalPlayer.hpp
+	entities/TestEntity.hpp
 	)
 set(ENTITY_SOURCES
 	entities/Entity.cpp
 	entities/LocalPlayer.cpp
+	entities/TestEntity.cpp
 	)
 
 
@@ -33,6 +35,7 @@ set(COMPONENTS_HEADERS
 	components/Input.hpp
 	components/AudioSource.hpp
 	components/Audio.hpp
+	components/Text.hpp
 	)
 
 
@@ -45,12 +48,15 @@ set(SYSTEMS_HEADERS
 	systems/Renderer.hpp
 	systems/KeyboardInput.hpp
 	systems/AudioSystem.hpp
+	systems/FontRenderer.hpp
+
 	)
 set(SYSTEMS_SOURCES
 	systems/System.cpp
 	systems/Renderer.cpp
 	systems/KeyboardInput.cpp
 	systems/AudioSystem.cpp
+	systems/FontRenderer.cpp
 	)
 
 set(MISC_HEADERS
@@ -62,6 +68,7 @@ set(MISC_HEADERS
 	misc/math.hpp
 	misc/misc.hpp
 	misc/SoundPlayer.hpp
+	misc/MusicPlayer.hpp
 )
 
 set(MISC_SOURCES
@@ -70,6 +77,7 @@ set(MISC_SOURCES
 	misc/math.cpp
 	misc/misc.cpp
 	misc/SoundPlayer.cpp
+	misc/MusicPlayer.cpp
 )
 
 #
