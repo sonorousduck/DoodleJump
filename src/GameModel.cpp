@@ -19,7 +19,7 @@
 /// </summary> 
 /// <param name="viewSize"></param>
 /// <returns></returns>
-bool GameModel::initialize(sf::Vector2f viewSize)
+bool GameModel::initialize(sf::Vector2f viewSize, std::shared_ptr<sf::RenderWindow> window)
 {
     // Initialize systems
 
@@ -33,7 +33,7 @@ bool GameModel::initialize(sf::Vector2f viewSize)
     m_systemKeyboardInput = std::make_unique<systems::KeyboardInput>(inputMapping);
 
     m_systemRender = std::make_unique<systems::Renderer>();
-    m_fontRenderer = std::make_unique<systems::FontRenderer>();
+    m_fontRenderer = std::make_unique<systems::FontRenderer>(window);
 
     // Create and add entities
     addEntity(entities::createLocalPlayer("assets/images/crow.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 0.05f, m_textures));

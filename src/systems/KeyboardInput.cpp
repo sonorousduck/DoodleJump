@@ -13,45 +13,51 @@ namespace systems
 
     KeyToFunction map;
 
-    for (auto&& input : entity->getComponent<components::Input>()->getInputs())
+    if (entity->getComponent<components::Input>())
     {
-      
-      switch (input)
-      {
-        case components::Input::Type::Up:
+        for (auto&& input : entity->getComponent<components::Input>()->getInputs())
         {
-          std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveUp, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-          map.m_keyToFunction[m_typeToKeyMap[input]] = f;
+
+            switch (input)
+            {
+                case components::Input::Type::Up:
+                {
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveUp, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    map.m_keyToFunction[m_typeToKeyMap[input]] = f;
+                }
+                break;
+                case components::Input::Type::Down:
+                {
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveDown, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    map.m_keyToFunction[m_typeToKeyMap[input]] = f;
+                }
+                break;
+                case components::Input::Type::Left:
+                {
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveLeft, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    map.m_keyToFunction[m_typeToKeyMap[input]] = f;
+                }
+                break;
+                case components::Input::Type::Right:
+                {
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveRight, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    map.m_keyToFunction[m_typeToKeyMap[input]] = f;
+                }
+                break;
+                case components::Input::Type::Fire:
+                {
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::fire, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    map.m_keyToFunction[m_typeToKeyMap[input]] = f;
+                }
+                break;
+            }
         }
-        break;
-        case components::Input::Type::Down:
-        {
-          std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveDown, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-          map.m_keyToFunction[m_typeToKeyMap[input]] = f;
-        }
-        break;
-        case components::Input::Type::Left:
-        {
-          std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveLeft, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-          map.m_keyToFunction[m_typeToKeyMap[input]] = f;
-        }
-        break;
-        case components::Input::Type::Right:
-        {
-          std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveRight, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-          map.m_keyToFunction[m_typeToKeyMap[input]] = f;
-        }
-        break;
-        case components::Input::Type::Fire:
-        {
-          std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::fire, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-          map.m_keyToFunction[m_typeToKeyMap[input]] = f;
-        }
-        break;
-      }
+
+        m_keyToFunctionMap[entity->getId()] = map;
     }
 
-    m_keyToFunctionMap[entity->getId()] = map;
+
+    
   }
 
   void KeyboardInput::removeEntity(decltype(entities::Entity().getId()) entityId)

@@ -124,7 +124,7 @@ int main()
 
     // Initialize game model
     GameModel model;
-    if (!model.initialize(window->getView().getSize()))
+    if (!model.initialize(window->getView().getSize(), window))
     {
         std::cout << "Game model failed to initialize, terminating..." << std::endl;
         exit(0);
@@ -162,6 +162,17 @@ int main()
 
         // Update the game model
         model.update(elapsedTime, window);
+
+        sf::Text test;
+        sf::Font font;
+        font.loadFromFile("assets/fonts/Shojumaru-Regular.ttf");
+        test.setFont(font);
+        test.setString("Y");
+        test.setCharacterSize(1);
+        test.setPosition(sf::Vector2f(-0.25f, -0.5f));
+
+        window->draw(test);
+
 
         // Display the window finally after the update has finished
         window->display();

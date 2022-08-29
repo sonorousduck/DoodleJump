@@ -15,6 +15,8 @@ namespace systems
 
             text->text.setPosition(position->get());
             text->text.setRotation(position->getRotation());
+            text->text.setFont(shojumaru);
+            window->draw(text->text);
         }
     }
 }
