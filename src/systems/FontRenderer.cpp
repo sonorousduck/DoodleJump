@@ -4,7 +4,7 @@
 
 namespace systems
 {
-    void FontRenderer::update(std::chrono::milliseconds elapsedTime) 
+    void FontRenderer::update(std::chrono::milliseconds elapsedTime, std::shared_ptr<sf::RenderTarget> renderTarget) 
     {
         (void)elapsedTime;
 
@@ -16,7 +16,8 @@ namespace systems
             text->text.setPosition(position->get());
             text->text.setRotation(position->getRotation());
             text->text.setFont(shojumaru);
-            window->draw(text->text);
+            text->text.setScale(Configuration::getGraphics().getScaleUI());
+            renderTarget->draw(text->text);
         }
     }
 }

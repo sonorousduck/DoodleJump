@@ -70,7 +70,7 @@ bool Configuration::initialize(const std::string_view jsonSettings, const std::s
         // When updating remember:
         //  1.  Remove the leading {
         //  2.  Add a leading ,
-        static const std::string jsonGame = "}";
+        static const std::string jsonGame = ",}";
         std::string_view json1 = jsonSettings.substr(0, jsonSettings.size() - 2);
         jsonFull = std::string(json1) + jsonGame;
     }
@@ -88,8 +88,8 @@ bool Configuration::initialize(const std::string_view jsonSettings, const std::s
     //
     // Have to call this because the resolution and scale-to-resolution settings are needed in
     // order to set this correctly.
-    //m_graphics.m_uiScaled = false;
-    //m_graphics.updateScale();
+    m_graphics.m_uiScaled = false;
+    m_graphics.updateScale();
 
     return validParse;
 }
@@ -249,7 +249,7 @@ void Configuration::Graphics::updateScale()
 {
     if (!Configuration::get<bool>(config::GRAPHICS_SCALE_TO_RESOLUTION))
     {
-        m_scale = { m_viewCoordinates.width / Configuration::getGraphics().getResolution().width, m_viewCoordinates.height / Configuration::getGraphics().getResolution().height };
+        m_scale = {m_viewCoordinates.width / Configuration::getGraphics().getResolution().width, m_viewCoordinates.height / Configuration::getGraphics().getResolution().height};
     }
 
     if (!m_uiScaled)

@@ -33,11 +33,11 @@ bool GameModel::initialize(sf::Vector2f viewSize, std::shared_ptr<sf::RenderWind
     m_systemKeyboardInput = std::make_unique<systems::KeyboardInput>(inputMapping);
 
     m_systemRender = std::make_unique<systems::Renderer>();
-    m_fontRenderer = std::make_unique<systems::FontRenderer>(window);
+    m_fontRenderer = std::make_unique<systems::FontRenderer>();
 
     // Create and add entities
-    addEntity(entities::createLocalPlayer("assets/images/crow.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 0.05f, m_textures));
-    addEntity(entities::createTestEntity("YEEET", sf::Color::Red, sf::Color::Black, 10, sf::Vector2f(-1.0f, 1.0f), 0.05f));
+    addEntity(entities::createLocalPlayer("assets/images/crow.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 1, m_textures));
+    addEntity(entities::createTestEntity("YEEET", sf::Color::Red, sf::Color::Green, 40, sf::Vector2f(-1.0f, 1.0f), 1.0f));
 
 
     return true;
@@ -67,7 +67,7 @@ void GameModel::update(const std::chrono::milliseconds elapsedTime, std::shared_
     // Render
     m_systemKeyboardInput->update(elapsedTime);
     m_systemRender->update(elapsedTime, renderTarget);
-    m_fontRenderer->update(elapsedTime);
+    m_fontRenderer->update(elapsedTime, renderTarget);
 
 }
 

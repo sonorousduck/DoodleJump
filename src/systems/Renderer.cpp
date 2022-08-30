@@ -5,6 +5,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <misc/Configuration.hpp>
 
 namespace systems
 {
@@ -13,9 +14,9 @@ namespace systems
         (void)elapsedTime; // Compiler warning ignore since we don't care about elapsedTime yet...
 
         // Draw Background
-        sf::RectangleShape square({1.0f, 1.0f});
+        sf::RectangleShape square({1000.0f, 1000.0f});
         square.setFillColor(sf::Color::Blue);
-        square.setPosition({-0.5f, -0.5f});
+        square.setPosition({-500, -500});
 
         renderTarget->clear(sf::Color::Black);
         renderTarget->draw(square);
@@ -29,6 +30,7 @@ namespace systems
             sprite->get()->setPosition(position->get());
             
             sprite->get()->setRotation(position->getRotation());
+            sprite->get()->scale(Configuration::getGraphics().getScaleUI());
 
             renderTarget->draw(*sprite->get());
             

@@ -10,19 +10,17 @@ namespace systems
 	class FontRenderer : public System
     {
       public:
-        FontRenderer(std::shared_ptr<sf::RenderWindow> window) :
+        FontRenderer() :
             System({ctti::unnamed_type_id<components::Text>(),
-                    ctti::unnamed_type_id<components::Position>()}),
-            window(window)
+                    ctti::unnamed_type_id<components::Position>()})
         {
             shojumaru.loadFromFile("assets/fonts/Shojumaru-Regular.ttf");
         }
 	
-        void update(std::chrono::milliseconds elapsedTime);
+        void update(std::chrono::milliseconds elapsedTime, std::shared_ptr<sf::RenderTarget> renderTarget);
 
 
       private:
-        std::shared_ptr<sf::RenderWindow> window;
         sf::Font shojumaru;
 
 	};

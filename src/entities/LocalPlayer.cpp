@@ -35,15 +35,15 @@ namespace entities
         // Implementation from Dr. Mathias' work on GameTech (linked in repository)
         // Define a scaling that converts from the texture size in pixels to unit coordinates
         // that match the view.  This makes the texture have the same size/shape as the view.
-        sf::Vector2f scaleToUnitSize(viewSize.x / texture->getSize().x, viewSize.y / texture->getSize().y);
+        //sf::Vector2f scaleToUnitSize(viewSize.x / texture->getSize().x, viewSize.y / texture->getSize().y);
 
-        playerSprite->setScale(sf::Vector2f(size * scaleToUnitSize.x, size * scaleToUnitSize.y));
+        //playerSprite->setScale(sf::Vector2f(size * scaleToUnitSize.x, size * scaleToUnitSize.y));
 
         // Add the components to this
         entity->addComponent(std::make_unique<components::Position>(position));
         entity->addComponent(std::make_unique<components::Size>(viewSize));
         entity->addComponent(std::make_unique<components::Sprite>(playerSprite));
-        entity->addComponent(std::make_unique<components::Movement>(0.002f));
+        entity->addComponent(std::make_unique<components::Movement>(0.02f));
         //entity->addComponent(std::make_unique<components::Audio>(content::KEY_AUDIO_GENERIC, true));
 
         auto inputs = {
