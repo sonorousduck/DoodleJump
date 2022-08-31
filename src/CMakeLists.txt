@@ -49,7 +49,8 @@ set(SYSTEMS_HEADERS
 	systems/KeyboardInput.hpp
 	systems/AudioSystem.hpp
 	systems/FontRenderer.hpp
-
+	systems/PlayerPhysics.hpp
+	systems/Collision.hpp
 	)
 set(SYSTEMS_SOURCES
 	systems/System.cpp
@@ -57,6 +58,8 @@ set(SYSTEMS_SOURCES
 	systems/KeyboardInput.cpp
 	systems/AudioSystem.cpp
 	systems/FontRenderer.cpp
+	systems/PlayerPhysics.cpp
+	systems/Collision.cpp
 	)
 
 set(MISC_HEADERS
