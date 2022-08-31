@@ -30,7 +30,7 @@ namespace systems
             sprite->get()->setPosition(position->get());
             
             sprite->get()->setRotation(position->getRotation());
-            sprite->get()->scale(Configuration::getGraphics().getScaleUI());
+            sprite->get()->setScale(Configuration::getGraphics().getScaleUI());
 
             renderTarget->draw(*sprite->get());
             
