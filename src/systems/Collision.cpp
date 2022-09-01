@@ -12,7 +12,6 @@ namespace systems
         {
             std::vector<std::shared_ptr<entities::Entity>> currentlyColliding = {};
 
-            entity->getComponent<components::RectangularCollider>()->currentlyColliding.clear();
             for (auto& [id1, entity1] : m_entities)
             {
                 if (hasCollided(entity, entity1))
@@ -45,9 +44,9 @@ namespace systems
                 // I believe this should auto delete the old pointer.... If memory is increasing steadily, this is a potential location of interest.
 
                 }
-                entity->getComponent<components::RectangularCollider>()->currentlyColliding = currentlyColliding;
-
             }
+
+            entity->getComponent<components::RectangularCollider>()->currentlyColliding = currentlyColliding;
         }
     }
 
