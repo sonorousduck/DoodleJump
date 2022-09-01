@@ -8,7 +8,7 @@ namespace components
     /// <summary>
     /// Note that rotation is done in DEGREES
     /// </summary>
-    class Position : public Component
+    class Position : public PolymorphicComparable<Component, Position>
     {
       public:
         Position(sf::Vector2f position, float rotation = 0.0f) :
@@ -30,6 +30,11 @@ namespace components
         /// </summary>
         /// <param name="rotation">The angle of the object in degrees</param>
         void setRotation(float rotation) { m_rotation = rotation; }
+
+        bool operator==(Position& rhs) 
+        {
+            return m_position == rhs.m_position && m_rotation == rhs.m_rotation;
+        }
 
       private:
         sf::Vector2f m_position;

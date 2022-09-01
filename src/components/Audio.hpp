@@ -11,7 +11,7 @@
 
 namespace components
 {
-	class Audio : public Component
+    class Audio : public PolymorphicComparable<Component, Audio>
     {
       public:
         Audio(std::string audioKey, bool load = false) :

@@ -9,7 +9,7 @@
 
 namespace components
 {
-	class Text : public Component
+    class Text : public PolymorphicComparable<Component, Text>
     {
       public:
         Text(std::string string, sf::Color color, sf::Color outlineColor, std::uint8_t size, float outlineThickness = 0)  

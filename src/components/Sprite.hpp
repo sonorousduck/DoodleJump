@@ -6,7 +6,7 @@
 
 namespace components
 {
-  class Sprite : public Component
+    class Sprite : public PolymorphicComparable<Component, Sprite>
   {
     public:
       Sprite(std::shared_ptr<sf::Sprite> sprite) :

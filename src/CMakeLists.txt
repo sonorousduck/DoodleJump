@@ -36,6 +36,7 @@ set(COMPONENTS_HEADERS
 	components/AudioSource.hpp
 	components/Audio.hpp
 	components/Text.hpp
+	components/RectangularCollider.hpp
 	)
 
 
@@ -60,6 +61,7 @@ set(SYSTEMS_SOURCES
 	systems/FontRenderer.cpp
 	systems/PlayerPhysics.cpp
 	systems/Collision.cpp
+
 	)
 
 set(MISC_HEADERS

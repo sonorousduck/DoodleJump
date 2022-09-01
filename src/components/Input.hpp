@@ -8,7 +8,7 @@
 
 namespace components
 {
-  class Input : public Component
+    class Input : public PolymorphicComparable<Component, Input>
   {
     public:
       enum class Type : std::uint8_t

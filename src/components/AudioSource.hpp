@@ -5,7 +5,7 @@
 
 namespace components
 {
-	class AudioSource : public Component
+    class AudioSource : public PolymorphicComparable<Component, AudioSource>
     {
       public: 
         enum class SongState : std::uint8_t

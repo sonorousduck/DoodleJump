@@ -13,7 +13,7 @@ namespace systems
 
     KeyToFunction map;
 
-    if (entity->getComponent<components::Input>())
+    if (entity->hasComponent<components::Input>())
     {
         for (auto&& input : entity->getComponent<components::Input>()->getInputs())
         {

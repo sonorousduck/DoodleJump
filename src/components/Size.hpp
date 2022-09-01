@@ -12,7 +12,7 @@
 // --------------------------------------------------------------
 namespace components
 {
-    class Size : public Component
+    class Size : public PolymorphicComparable<Component, Size>
     {
       public:
         Size(sf::Vector2f size) : 

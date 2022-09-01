@@ -3,6 +3,7 @@
 #include "entities/Entity.hpp"
 #include "systems/Renderer.hpp"
 #include "systems/KeyboardInput.hpp"
+#include "systems/Collision.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
@@ -30,6 +31,7 @@ class GameModel
     std::unique_ptr<systems::FontRenderer> m_fontRenderer;
     std::unique_ptr<systems::KeyboardInput> m_systemKeyboardInput;
     std::unique_ptr<systems::Renderer> m_systemRender;
+    std::unique_ptr<systems::Collision> m_collision;
 
     void addEntity(std::shared_ptr<entities::Entity> entity);
     void removeEntity(decltype(entities::Entity().getId()) entityId);
