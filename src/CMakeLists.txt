@@ -37,6 +37,7 @@ set(COMPONENTS_HEADERS
 	components/Audio.hpp
 	components/Text.hpp
 	components/RectangularCollider.hpp
+	components/RigidBody.hpp
 	)
 
 
@@ -52,6 +53,7 @@ set(SYSTEMS_HEADERS
 	systems/FontRenderer.hpp
 	systems/PlayerPhysics.hpp
 	systems/Collision.hpp
+	systems/Physics.hpp
 	)
 set(SYSTEMS_SOURCES
 	systems/System.cpp
@@ -61,7 +63,7 @@ set(SYSTEMS_SOURCES
 	systems/FontRenderer.cpp
 	systems/PlayerPhysics.cpp
 	systems/Collision.cpp
-
+	systems/Physics.cpp
 	)
 
 set(MISC_HEADERS

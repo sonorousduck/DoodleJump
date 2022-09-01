@@ -1,6 +1,5 @@
 #include "Collision.hpp"
-#include "components/Position.hpp"
-#include "components/RectangularCollider.hpp"
+
 
 namespace systems
 {
