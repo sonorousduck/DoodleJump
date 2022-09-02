@@ -35,6 +35,7 @@ bool GameModel::initialize(sf::Vector2f viewSize, std::shared_ptr<sf::RenderWind
     m_systemRender = std::make_unique<systems::Renderer>();
     m_fontRenderer = std::make_unique<systems::FontRenderer>();
     m_collision = std::make_unique<systems::Collision>();
+    m_physics = std::make_unique<systems::Physics>();
     
 
     // Create and add entities
@@ -71,6 +72,7 @@ void GameModel::update(const std::chrono::milliseconds elapsedTime, std::shared_
     m_systemRender->update(elapsedTime, renderTarget);
     m_fontRenderer->update(elapsedTime, renderTarget);
     m_collision->update(elapsedTime);
+    m_physics->update(elapsedTime);
 
 }
 
@@ -90,6 +92,7 @@ void GameModel::addEntity(std::shared_ptr<entities::Entity> entity)
     m_systemRender->addEntity(entity);
     m_fontRenderer->addEntity(entity);
     m_collision->addEntity(entity);
+    m_physics->addEntity(entity);
 }
 
 /// <summary>
@@ -105,4 +108,5 @@ void GameModel::removeEntity(decltype(entities::Entity().getId()) entityId)
     m_systemRender->removeEntity(entityId);
     m_fontRenderer->removeEntity(entityId);
     m_collision->removeEntity(entityId);
+    m_physics->removeEntity(entityId);
 }

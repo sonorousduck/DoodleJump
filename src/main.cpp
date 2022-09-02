@@ -192,7 +192,7 @@ int main()
 
 
     MusicPlayer::instance().initialize();
-    MusicPlayer::instance().play("assets/music/soliloquy.ogg", 100.0f);
+    MusicPlayer::instance().play("assets/music/soliloquy.ogg", 25.0f);
 
 
     // Create and activate the window for rendering on main thread

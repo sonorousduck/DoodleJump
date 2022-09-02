@@ -3,7 +3,7 @@
 
 namespace systems
 {
-    const float Physics::GRAVITY_CONSTANT = -9.81f;
+    const float Physics::GRAVITY_CONSTANT = 9.81f;
 
     void Physics::update(std::chrono::milliseconds elapsedTime)
     {
@@ -18,7 +18,7 @@ namespace systems
             rigidBody->velocity += sf::Vector2f(rigidBody->acceleration.x * (elapsedTime.count() / 1000.0f), rigidBody->acceleration.y * pow((elapsedTime.count() / 1000.0f), 2));
 
 
-            position->set(rigidBody->velocity * (elapsedTime.count() / 1000.0f));
+            position->set(position->get() + rigidBody->velocity * (elapsedTime.count() / 1000.0f));
         }
     
     }

@@ -1,8 +1,5 @@
 #include "TestEntity.hpp"
-#include "components/Position.hpp"
-#include "components/Text.hpp"
-#include "components/RectangularCollider.hpp"
-#include <components/Input.hpp>
+
 
 
 namespace entities
@@ -14,6 +11,7 @@ namespace entities
         entity->addComponent(std::make_unique<components::Text>(string, color, outlineColor, size, outlineThickness));
         entity->addComponent(std::make_unique<components::Position>(position, rotation));
         entity->addComponent(std::make_unique<components::RectangularCollider>(sf::Vector2f(1.0f, 1.0f)));
+        entity->addComponent(std::make_unique<components::RigidBody>(10.0f, 1.0f));
 
 
         return entity;
