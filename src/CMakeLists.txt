@@ -226,6 +226,10 @@ add_subdirectory(ThirdParty/rapidjson)
 include_directories(ThirdParty/rapidjson/include)
 #
 
+#
+# ------------------------- Add Lua --------------------
+add_subdirectory(ThirdParty/lua-5.4.4)
+#
 
 #
 # ------------------------ Clang Format ------------------------

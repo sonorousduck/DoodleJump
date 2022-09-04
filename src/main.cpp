@@ -22,6 +22,12 @@
 #include "misc/SoundPlayer.hpp"
 #include "misc/MusicPlayer.hpp"
 
+//extern "C"
+//{
+//    #include "ThirdParty/lua-5.4.4/src/lua.hpp"
+//}
+
+
 //
 // This should not be in the Configuration.hpp header because client/server
 // will have different configuration files.
@@ -184,6 +190,9 @@ void prepareView(std::shared_ptr<sf::RenderWindow> window)
 
 int main()
 {
+
+    //lua_State* L = luaL_newstate();
+
     if (!readConfiguration())
     {
         std::cout << "Failure in reading configuration file...\n";
@@ -256,5 +265,7 @@ int main()
     // that otherwise show up as SFML is shutting down.
     window->setActive(false);
     window->close();
+
+    //lua_close(L);
     return 0;
 }
