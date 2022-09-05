@@ -7,7 +7,7 @@
 #include "components/Input.hpp"
 #include "components/Audio.hpp"
 #include "components/RectangularCollider.hpp"
-
+#include "components/AudioSource.hpp"
 #include "misc/Content.hpp"
 
 

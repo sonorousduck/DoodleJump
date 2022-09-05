@@ -5,7 +5,7 @@
 #include "components/Position.hpp"
 #include "components/Movement.hpp"
 #include "entities/Entity.hpp"
-
+#include "misc/SoundPlayer.hpp"
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <chrono>

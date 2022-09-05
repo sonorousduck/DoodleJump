@@ -92,10 +92,19 @@ void SoundPlayer::run()
         if (task.has_value())
         {
             auto sound = m_sounds.dequeue().value();
-            sound->setBuffer(*Content::get<sf::SoundBuffer>(task.value().key));
-            sound->setVolume(task.value().volume);
-            sound->play();
-            m_sounds.enqueue(sound);
+            sf::SoundBuffer buffer;
+            if (buffer.loadFromFile(task.value().key))
+            {
+                sound->setBuffer(buffer);
+                // sound->setBuffer(*Content::get<sf::SoundBuffer>(task.value().key));
+                sound->setVolume(task.value().volume);
+                sound->play();
+                m_sounds.enqueue(sound);
+            }
+            else
+            {
+                throw new std::exception("Sound Effect Failed to Load");
+            }
         }
         else
         {

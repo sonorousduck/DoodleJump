@@ -190,9 +190,21 @@ int main()
         exit(0);
     }
 
-
+    SoundPlayer::instance().initialize();
     MusicPlayer::instance().initialize();
     MusicPlayer::instance().play("assets/music/soliloquy.ogg", 25.0f);
+
+    sf::SoundBuffer buffer;
+    if (!buffer.loadFromFile("assets/audio/fire.ogg"))
+    {
+        return -1;
+    }
+
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    sound.play();
+
+
 
 
     // Create and activate the window for rendering on main thread

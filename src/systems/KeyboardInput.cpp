@@ -48,6 +48,7 @@ namespace systems
                 {
                     std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::fire, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
                     map.m_keyToFunction[m_typeToKeyMap[input]] = f;
+
                 }
                 break;
             }
@@ -137,6 +138,8 @@ namespace systems
   void KeyboardInput::fire(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement)
   {
     (void)elapsedTime;
+    SoundPlayer::play("assets/audio/fire.ogg", 100.0f);
+
   }
 
 }
