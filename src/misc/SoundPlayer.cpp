@@ -44,13 +44,14 @@ SoundPlayer& SoundPlayer::instance()
 // --------------------------------------------------------------
 void SoundPlayer::initialize()
 {
-    m_thread = std::make_unique<std::thread>(&SoundPlayer::run, this);
-    //
-    // Create a queue of 100 sf::Sound object that we'll cycle through.
-    while (m_sounds.size() < 100)
-    {
-        m_sounds.enqueue(std::make_shared<sf::Sound>());
-    }
+    //soundEffects = std::make_unique<std::vector<sf::Sound>>();
+    //m_thread = std::make_unique<std::thread>(&SoundPlayer::run, this);
+    ////
+    //// Create a queue of 100 sf::Sound object that we'll cycle through.
+    //while (m_sounds.size() < 100)
+    //{
+    //    m_sounds.enqueue(std::make_shared<sf::Sound>());
+    //}
 }
 
 // --------------------------------------------------------------
@@ -63,7 +64,6 @@ void SoundPlayer::terminate()
 {
     m_done = true;
     m_eventTasks.notify_one();
-    m_thread->join();
 }
 
 // --------------------------------------------------------------
@@ -71,10 +71,32 @@ void SoundPlayer::terminate()
 // Public method to allow client code to initiate a sound.
 //
 // --------------------------------------------------------------
-void SoundPlayer::play(const std::string& key, float volume)
+void SoundPlayer::add(const std::string& key, float volume)
 {
-    instance().m_tasks.enqueue({key, volume});
-    instance().m_eventTasks.notify_one();
+    auto test = Content::get<sf::Sound>(key);
+    test->setVolume(volume);
+    test->play();
+    
+}
+
+void SoundPlayer::play()
+{
+
+    //sf::SoundBuffer buffer;
+    //buffer.loadFromFile("assets/audio/fire.ogg");
+    //sound.setBuffer(buffer);
+    //sound.setVolume(100.0f);
+    //sound.play();
+    //if (instance().soundEffects->size() > 0)
+    //{
+    //    sf::Sound sound = instance().soundEffects->back();
+    //    sound.getBuffer();
+    //    sound.setLoop(true);
+    //    sound.play();
+    //    //instance().soundEffects->pop_back();
+    //}
+
+
 }
 
 // --------------------------------------------------------------
@@ -86,30 +108,36 @@ void SoundPlayer::play(const std::string& key, float volume)
 // --------------------------------------------------------------
 void SoundPlayer::run()
 {
-    while (!m_done)
-    {
-        auto task = m_tasks.dequeue();
-        if (task.has_value())
-        {
-            auto sound = m_sounds.dequeue().value();
-            sf::SoundBuffer buffer;
-            if (buffer.loadFromFile(task.value().key))
-            {
-                sound->setBuffer(buffer);
-                // sound->setBuffer(*Content::get<sf::SoundBuffer>(task.value().key));
-                sound->setVolume(task.value().volume);
-                sound->play();
-                m_sounds.enqueue(sound);
-            }
-            else
-            {
-                throw new std::exception("Sound Effect Failed to Load");
-            }
-        }
-        else
-        {
-            std::unique_lock<std::mutex> lock(m_mutexTasks);
-            m_eventTasks.wait(lock);
-        }
-    }
+    sf::SoundBuffer buffer;
+    buffer.loadFromFile("assets/audio/fire.ogg");
+    sound.setBuffer(buffer);
+    sound.setVolume(100.0f);
+    sound.play();
+
+    //while (!m_done)
+    //{
+    //    auto task = m_tasks.dequeue();
+    //    if (task.has_value())
+    //    {
+    //        auto sound = m_sounds.dequeue().value();
+    //        sf::SoundBuffer buffer;
+    //        sf::Sound soundTest;
+    //        if (buffer.loadFromFile(task.value().key))
+    //        {
+    //            soundTest.setBuffer(buffer);
+    //            soundTest.setVolume(task.value().volume);
+    //            soundTest.play();
+    //            m_sounds.enqueue(sound);
+    //        }
+    //        else
+    //        {
+    //            throw new std::exception("Sound Effect Failed to Load");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        std::unique_lock<std::mutex> lock(m_mutexTasks);
+    //        m_eventTasks.wait(lock);
+    //    }
+    //}
 }

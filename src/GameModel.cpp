@@ -74,6 +74,10 @@ void GameModel::update(const std::chrono::milliseconds elapsedTime, std::shared_
     m_collision->update(elapsedTime);
     m_physics->update(elapsedTime);
 
+    SoundPlayer::play();
+
+
+
 }
 
 /// <summary>

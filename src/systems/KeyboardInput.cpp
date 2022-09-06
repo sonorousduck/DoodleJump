@@ -138,7 +138,7 @@ namespace systems
   void KeyboardInput::fire(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement)
   {
     (void)elapsedTime;
-    SoundPlayer::play("assets/audio/fire.ogg", 100.0f);
+      SoundPlayer::add("fire", 100.0f);
 
   }
 

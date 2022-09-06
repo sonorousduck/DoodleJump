@@ -33,6 +33,7 @@ THE SOFTWARE.
 #include <mutex>
 #include <string>
 #include <thread>
+#include <vector>
 
 // --------------------------------------------------------------
 //
@@ -58,12 +59,18 @@ class SoundPlayer
     SoundPlayer(SoundPlayer&&) = delete;
     SoundPlayer& operator=(const SoundPlayer&) = delete;
     SoundPlayer& operator=(SoundPlayer&&) = delete;
-
     static SoundPlayer& instance();
     void initialize();
     void terminate();
 
-    static void play(const std::string& key, float volume = 100.0f);
+
+
+    static void add(const std::string& key, float volume = 100.0f);
+    
+    
+    static void play();
+
+
 
   private:
     SoundPlayer() {}
@@ -85,10 +92,15 @@ class SoundPlayer
     // the original sf::Sound object around all the time.  Could change it to unique_ptr
     // with a bunch of std::move I suppose, to improve efficiency.
     ConcurrentQueue<std::shared_ptr<sf::Sound>> m_sounds;
+    //std::unique_ptr<std::vector<std::pair<sf::Sound, bool>>> soundEffects;
+    //std::unique_ptr<std::vector<std::pair<sf::SoundBuffer, bool>>> soundEffects;
 
+    
     bool m_done{false};
-    std::unique_ptr<std::thread> m_thread;
-    ConcurrentQueue<Task> m_tasks;
+    sf::Sound sound;
+
+    /*std::unique_ptr<std::vector<sf::Sound>> m_thread;
+    ConcurrentQueue<Task> m_tasks;*/
     std::condition_variable m_eventTasks;
     std::mutex m_mutexTasks;
 

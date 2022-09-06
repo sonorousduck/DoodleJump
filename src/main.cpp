@@ -181,6 +181,29 @@ void prepareView(std::shared_ptr<sf::RenderWindow> window)
     //window->setView(view);
 }
 
+void startLoadingGameContent()
+{
+
+    //
+    // Sounds
+    std::vector<std::pair<std::string, std::string>> sounds{
+        {"fire", "fire.ogg"},
+    
+    };
+
+    for (auto&& [keyContent, keyConfig] : sounds)
+    {
+        if (!Content::has<sf::SoundBuffer>(keyContent))
+        {
+            Content::load<sf::SoundBuffer>(keyContent, keyConfig, nullptr, nullptr);
+        }
+    }
+
+}
+
+
+
+
 
 int main()
 {
@@ -193,16 +216,8 @@ int main()
     SoundPlayer::instance().initialize();
     MusicPlayer::instance().initialize();
     MusicPlayer::instance().play("assets/music/soliloquy.ogg", 25.0f);
+    startLoadingGameContent();
 
-    sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("assets/audio/fire.ogg"))
-    {
-        return -1;
-    }
-
-    sf::Sound sound;
-    sound.setBuffer(buffer);
-    sound.play();
 
 
 
@@ -252,7 +267,6 @@ int main()
 
         // Update the game model
         model.update(elapsedTime, window);
-
 
 
         // Display the window finally after the update has finished
