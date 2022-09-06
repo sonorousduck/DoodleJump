@@ -54,6 +54,7 @@ set(SYSTEMS_HEADERS
 	systems/PlayerPhysics.hpp
 	systems/Collision.hpp
 	systems/Physics.hpp
+	systems/Scripting.hpp
 	)
 set(SYSTEMS_SOURCES
 	systems/System.cpp
@@ -64,6 +65,8 @@ set(SYSTEMS_SOURCES
 	systems/PlayerPhysics.cpp
 	systems/Collision.cpp
 	systems/Physics.cpp
+	systems/Scripting.cpp
+
 	)
 
 set(MISC_HEADERS
@@ -76,6 +79,7 @@ set(MISC_HEADERS
 	misc/misc.hpp
 	misc/SoundPlayer.hpp
 	misc/MusicPlayer.hpp
+	
 )
 
 set(MISC_SOURCES
