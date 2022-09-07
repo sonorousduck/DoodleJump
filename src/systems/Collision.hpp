@@ -2,6 +2,7 @@
 #include "System.hpp"
 #include "components/Position.hpp"
 #include "components/RectangularCollider.hpp"
+#include "components/ScriptBase.hpp"
 #include <vector>
 #include <algorithm>
 #include <iostream>

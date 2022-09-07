@@ -22,11 +22,20 @@ namespace systems
                     if (!(std::find(entity->getComponent<components::RectangularCollider>()->currentlyColliding.begin(), entity->getComponent<components::RectangularCollider>()->currentlyColliding.end(), entity1) != entity->getComponent<components::RectangularCollider>()->currentlyColliding.end()))
                     {
                         // This means OnCollisionStart
+                        if (entity->hasComponent<components::ScriptBase>())
+                        {
+                            entity->getComponent<components::ScriptBase>()->onCollisionStart(*entity1);
+                        }
+
                         std::cout << "It began collision!" << std::endl;
                     }
                     else
                     {
                         // else, onCollision
+                        if (entity->hasComponent<components::ScriptBase>())
+                        {
+                            entity->getComponent<components::ScriptBase>()->onCollision(*entity1);
+                        }
                         std::cout << "It is colliding" << std::endl;
                     }
                 }
@@ -35,6 +44,10 @@ namespace systems
                 // We used to be colliding with this
                 if (std::find(entity->getComponent<components::RectangularCollider>()->currentlyColliding.begin(), entity->getComponent<components::RectangularCollider>()->currentlyColliding.end(), entity1) != entity->getComponent<components::RectangularCollider>()->currentlyColliding.end())
                 {
+                    if (entity->hasComponent<components::ScriptBase>())
+                    {
+                        entity->getComponent<components::ScriptBase>()->onCollisionEnd(*entity1);
+                    }
                     // OnCollisionEnd
                     std::cout << "It ended collision!" << std::endl;
 
