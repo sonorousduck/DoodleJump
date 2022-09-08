@@ -22,31 +22,19 @@ namespace systems
             {
                 case components::Input::Type::Up:
                 {
-                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveUp, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*, entities::EntityPtr)> f = std::bind(&KeyboardInput::moveUp, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
                     map.m_keyToFunction[m_typeToKeyMap[input]] = f;
                 }
                 break;
                 case components::Input::Type::Down:
                 {
-                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveDown, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*, entities::EntityPtr)> f = std::bind(&KeyboardInput::moveDown, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
                     map.m_keyToFunction[m_typeToKeyMap[input]] = f;
                 }
                 break;
-                case components::Input::Type::Left:
+                case components::Input::Type::Jump:
                 {
-                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveLeft, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-                    map.m_keyToFunction[m_typeToKeyMap[input]] = f;
-                }
-                break;
-                case components::Input::Type::Right:
-                {
-                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::moveRight, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
-                    map.m_keyToFunction[m_typeToKeyMap[input]] = f;
-                }
-                break;
-                case components::Input::Type::Fire:
-                {
-                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)> f = std::bind(&KeyboardInput::fire, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+                    std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*, entities::EntityPtr)> f = std::bind(&KeyboardInput::jump, this, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
                     map.m_keyToFunction[m_typeToKeyMap[input]] = f;
 
                 }
@@ -82,7 +70,7 @@ namespace systems
         {
           auto position = entity->getComponent<components::Position>();
           auto movement = entity->getComponent<components::Movement>();
-          m_keyToFunctionMap[id].m_keyToFunction[key](elapsedTime, position, movement);
+          m_keyToFunctionMap[id].m_keyToFunction[key](elapsedTime, position, movement, entity);
         }
       }
     }
@@ -103,7 +91,7 @@ namespace systems
 
   // Game specific inputs
   // These should change based on the game
-  void KeyboardInput::moveUp(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement)
+  void KeyboardInput::moveUp(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity)
   {
     auto current = position->get();
     position->set(sf::Vector2f(
@@ -111,7 +99,7 @@ namespace systems
       current.y - elapsedTime.count() * movement->getAcceleration()));
   }
 
-  void KeyboardInput::moveDown(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement)
+  void KeyboardInput::moveDown(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity)
   {
     auto current = position->get();
     position->set(sf::Vector2f(
@@ -119,26 +107,14 @@ namespace systems
       current.y + elapsedTime.count() * movement->getAcceleration()));
   }
   
-  void KeyboardInput::moveLeft(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement)
-  {
-    auto current = position->get();
-    position->set(sf::Vector2f(
-      current.x - elapsedTime.count() * movement->getAcceleration(),
-      current.y));
-  }
-  
-  void KeyboardInput::moveRight(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement)
-  {
-    auto current = position->get();
-    position->set(sf::Vector2f(
-      current.x + elapsedTime.count() * movement->getAcceleration(),
-      current.y));
-  }
 
-  void KeyboardInput::fire(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement)
+  void KeyboardInput::jump(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity)
   {
     (void)elapsedTime;
-      SoundPlayer::add("fire", 100.0f);
+    (void)movement;
+    (void)position;
+
+    SoundPlayer::add("fire", 100.0f);
 
   }
 

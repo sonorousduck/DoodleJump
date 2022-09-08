@@ -15,9 +15,7 @@ namespace components
       {
         Up,
         Down,
-        Left,
-        Right,
-        Fire
+        Jump
       };
 
       

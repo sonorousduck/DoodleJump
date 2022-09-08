@@ -43,17 +43,15 @@ namespace systems
       class KeyToFunction
         {
           public:
-            std::unordered_map<sf::Keyboard::Key, std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*)>> m_keyToFunction;
+            std::unordered_map<sf::Keyboard::Key, std::function<void(std::chrono::milliseconds, components::Position*, components::Movement*, entities::EntityPtr)>> m_keyToFunction;
         };
 
       std::unordered_map<sf::Keyboard::Key, sf::Event::KeyEvent> m_keysPressed;
       std::unordered_map<components::Input::Type, sf::Keyboard::Key> m_typeToKeyMap;
       std::unordered_map<decltype(entities::Entity().getId()), KeyToFunction> m_keyToFunctionMap;
 
-      void moveUp(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement);
-      void moveLeft(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement);
-      void moveRight(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement);
-      void moveDown(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement);
-      void fire(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement);
+      void moveUp(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
+      void moveDown(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
+      void jump(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
   };
 }

@@ -55,9 +55,7 @@ namespace entities
         auto inputs = {
             components::Input::Type::Up,
             components::Input::Type::Down,
-            components::Input::Type::Left,
-            components::Input::Type::Right,
-            components::Input::Type::Fire};
+            components::Input::Type::Jump};
         entity->addComponent(std::make_unique<components::Input>(inputs));
 
         return entity;

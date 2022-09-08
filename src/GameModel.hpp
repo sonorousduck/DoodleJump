@@ -5,6 +5,7 @@
 #include "systems/KeyboardInput.hpp"
 #include "systems/Collision.hpp"
 #include "systems/Physics.hpp"
+#include "systems/Scripting.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
@@ -34,6 +35,7 @@ class GameModel
     std::unique_ptr<systems::Renderer> m_systemRender;
     std::unique_ptr<systems::Collision> m_collision;
     std::unique_ptr<systems::Physics> m_physics;
+    std::unique_ptr<systems::Scripting> m_scripting;
 
     void addEntity(std::shared_ptr<entities::Entity> entity);
     void removeEntity(decltype(entities::Entity().getId()) entityId);
