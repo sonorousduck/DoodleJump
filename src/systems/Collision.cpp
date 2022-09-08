@@ -24,7 +24,7 @@ namespace systems
                         // This means OnCollisionStart
                         if (entity->hasComponent<components::ScriptBase>())
                         {
-                            entity->getComponent<components::ScriptBase>()->onCollisionStart(*entity1);
+                            entity->getComponent<components::ScriptBase>()->onCollisionStart(entity1);
                         }
 
                         std::cout << "It began collision!" << std::endl;
@@ -34,7 +34,7 @@ namespace systems
                         // else, onCollision
                         if (entity->hasComponent<components::ScriptBase>())
                         {
-                            entity->getComponent<components::ScriptBase>()->onCollision(*entity1);
+                            entity->getComponent<components::ScriptBase>()->onCollision(entity1);
                         }
                         std::cout << "It is colliding" << std::endl;
                     }
@@ -46,7 +46,7 @@ namespace systems
                 {
                     if (entity->hasComponent<components::ScriptBase>())
                     {
-                        entity->getComponent<components::ScriptBase>()->onCollisionEnd(*entity1);
+                        entity->getComponent<components::ScriptBase>()->onCollisionEnd(entity1);
                     }
                     // OnCollisionEnd
                     std::cout << "It ended collision!" << std::endl;

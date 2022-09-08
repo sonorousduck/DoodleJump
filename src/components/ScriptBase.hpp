@@ -8,9 +8,9 @@ namespace components
     {
       public:
           // This might need a rewrite. Seems weird to need the entity inside of a component, when the entity itself holds the component. 
-        entities::Entity entity;
+        entities::EntityPtr entity;
 
-        ScriptBase(entities::Entity entity) :
+        ScriptBase(entities::EntityPtr entity) :
             entity(entity)
         {
         }
@@ -18,9 +18,9 @@ namespace components
 
         virtual void start() = 0;
         virtual void destroyed() = 0;
-        virtual void onCollision(entities::Entity other) = 0;
-        virtual void onCollisionStart(entities::Entity other) = 0;
-        virtual void onCollisionEnd(entities::Entity other) = 0;
+        virtual void onCollision(entities::EntityPtr other) = 0;
+        virtual void onCollisionStart(entities::EntityPtr other) = 0;
+        virtual void onCollisionEnd(entities::EntityPtr other) = 0;
         virtual void update(std::chrono::milliseconds elapsedTime) = 0;
 
         /// <summary>

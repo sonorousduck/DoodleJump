@@ -38,6 +38,7 @@ set(COMPONENTS_HEADERS
 	components/Text.hpp
 	components/RectangularCollider.hpp
 	components/RigidBody.hpp
+	components/ScriptBase.hpp
 	)
 
 
