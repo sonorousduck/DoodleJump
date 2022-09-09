@@ -25,8 +25,8 @@ bool GameModel::initialize(sf::Vector2f viewSize, std::shared_ptr<sf::RenderWind
 
     // TODO: Should read from config file for key remappings
     auto inputMapping = {
-        std::make_tuple(components::Input::Type::Up, sf::Keyboard::W),
-        std::make_tuple(components::Input::Type::Down, sf::Keyboard::S),
+        std::make_tuple(components::Input::Type::Left, sf::Keyboard::A),
+        std::make_tuple(components::Input::Type::Right, sf::Keyboard::D),
         std::make_tuple(components::Input::Type::Jump, sf::Keyboard::Space)};
     m_systemKeyboardInput = std::make_unique<systems::KeyboardInput>(inputMapping);
 

@@ -13,8 +13,8 @@ namespace components
     public:
       enum class Type : std::uint8_t
       {
-        Up,
-        Down,
+        Left,
+        Right,
         Jump
       };
 

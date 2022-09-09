@@ -53,8 +53,8 @@ namespace entities
         //entity->addComponent(std::make_unique<components::Audio>(content::KEY_AUDIO_GENERIC, true));
 
         auto inputs = {
-            components::Input::Type::Up,
-            components::Input::Type::Down,
+            components::Input::Type::Left,
+            components::Input::Type::Right,
             components::Input::Type::Jump};
         entity->addComponent(std::make_unique<components::Input>(inputs));
 

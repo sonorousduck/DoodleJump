@@ -92,6 +92,15 @@ set(MISC_SOURCES
 	misc/MusicPlayer.cpp
 )
 
+set(SCRIPT_HEADERS
+
+)
+
+set(SCRIPT_SOURCES
+
+
+)
+
 #
 # Organize the files into logical groups
 #
@@ -111,7 +120,8 @@ source_group("Systems\\Source Files" FILES ${SYSTEMS_SOURCES})
 source_group("Misc\\Header Files" FILES ${MISC_HEADERS})
 source_group("Misc\\Source Files" FILES ${MISC_SOURCES})
 
-
+source_group("Scripts\\Header Files" FILES ${SCRIPT_HEADERS})
+source_group("Scripts\\Source Files" FILES ${SCRIPT_SOURCES})
 #
 # For clang-format
 #

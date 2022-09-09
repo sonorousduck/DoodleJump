@@ -50,8 +50,8 @@ namespace systems
       std::unordered_map<components::Input::Type, sf::Keyboard::Key> m_typeToKeyMap;
       std::unordered_map<decltype(entities::Entity().getId()), KeyToFunction> m_keyToFunctionMap;
 
-      void moveUp(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
-      void moveDown(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
+      void moveLeft(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
+      void moveRight(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
       void jump(std::chrono::milliseconds elapsedTime, components::Position* position, components::Movement* movement, entities::EntityPtr entity);
   };
 }
