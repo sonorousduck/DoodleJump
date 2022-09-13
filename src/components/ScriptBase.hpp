@@ -20,7 +20,7 @@ namespace components
         virtual void destroyed() = 0;
         virtual void onCollision(entities::EntityPtr other) = 0;
         virtual void onCollisionStart(entities::EntityPtr other) = 0;
-        virtual void onCollisionEnd(entities::EntityPtr other) = 0;
+        virtual void onCollisionEnd(entities::EntityPtr  other) = 0;
         virtual void update(std::chrono::milliseconds elapsedTime) = 0;
 
         /// <summary>

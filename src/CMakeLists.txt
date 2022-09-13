@@ -93,11 +93,11 @@ set(MISC_SOURCES
 )
 
 set(SCRIPT_HEADERS
-
+	scripts/PlayerPhysics.hpp
 )
 
 set(SCRIPT_SOURCES
-
+	scripts/PlayerPhysics.cpp
 
 )
 
@@ -137,6 +137,8 @@ set(ALL_CODE_FILES
 	${SYSTEMS_SOURCES}
 	${MISC_HEADERS}
 	${MISC_SOURCES}
+	${SCRIPT_HEADERS}
+	${SCRIPT_SOURCES}
 	)
 
 #
@@ -153,7 +155,7 @@ add_executable(DoodleJump ${ALL_CODE_FILES})
 target_include_directories(DoodleJump PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 #
-# Want the C++ 17 standard for the project
+# Want the C++ 20 standard for the project
 #
 set_property(TARGET DoodleJump PROPERTY CXX_STANDARD 20)
 
@@ -201,9 +203,9 @@ endif()
 
 
 set(DEFAULT_DEVELOPER_FILE ${CMAKE_CURRENT_SOURCE_DIR}/client.developer.json)
-set(DEFAULT_DEVELOPER_FILE ${CMAKE_CURRENT_BINARY_DIR}/client.developer.json)
-if (NOT EXISTS ${BUILD_SCORES_FILE} OR ${DEFAULT_SCORES_FILE} IS_NEWER_THAN ${BUILD_SCORES_FILE})
-   configure_file(${DEFAULT_SCORES_FILE} ${BUILD_SCORES_FILE} COPYONLY)
+set(BUILD_DEVELOPER_FILE ${CMAKE_CURRENT_BINARY_DIR}/client.developer.json)
+if (NOT EXISTS ${DEFAULT_DEVELOPER_FILE} OR ${BUILD_DEVELOPER_FILE} IS_NEWER_THAN ${BUILD_DEVELOPER_FILE})
+   configure_file(${DEFAULT_DEVELOPER_FILE} ${BUILD_DEVELOPER_FILE} COPYONLY)
 endif()
 
 

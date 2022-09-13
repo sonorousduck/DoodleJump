@@ -9,7 +9,8 @@
 #include "components/RectangularCollider.hpp"
 #include "components/AudioSource.hpp"
 #include "misc/Content.hpp"
-
+#include "scripts/PlayerPhysics.hpp"
+#include "components/RigidBody.hpp"
 
 
 #include <iostream>
@@ -49,6 +50,8 @@ namespace entities
         entity->addComponent(std::make_unique<components::Sprite>(playerSprite));
         entity->addComponent(std::make_unique<components::Movement>(0.02f));
         entity->addComponent(std::make_unique<components::RectangularCollider>(sf::Vector2f(1.0f, 1.0f)));
+        entity->addComponent(std::make_unique<components::RigidBody>(10.0f, 1.0f));
+        entity->addComponent(std::make_unique<scripts::PlayerPhysics>(entity));
 
         //entity->addComponent(std::make_unique<components::Audio>(content::KEY_AUDIO_GENERIC, true));
 
