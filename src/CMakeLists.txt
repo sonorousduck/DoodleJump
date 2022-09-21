@@ -39,6 +39,7 @@ set(COMPONENTS_HEADERS
 	components/RectangularCollider.hpp
 	components/RigidBody.hpp
 	components/ScriptBase.hpp
+	components/AnimatedSprite.hpp
 	)
 
 
@@ -56,6 +57,7 @@ set(SYSTEMS_HEADERS
 	systems/Collision.hpp
 	systems/Physics.hpp
 	systems/Scripting.hpp
+	systems/AnimationRenderer.hpp
 	)
 set(SYSTEMS_SOURCES
 	systems/System.cpp
@@ -67,6 +69,7 @@ set(SYSTEMS_SOURCES
 	systems/Collision.cpp
 	systems/Physics.cpp
 	systems/Scripting.cpp
+	systems/AnimationRenderer.cpp
 
 	)
 
