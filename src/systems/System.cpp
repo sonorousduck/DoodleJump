@@ -24,7 +24,6 @@ namespace systems
       [&entity](auto interest) {
               return entity->getComponents().find(interest) != entity->getComponents().end();
       });
-      //|| entity->getComponents().find(interest) != entity->getComponents().end()
     return iCareIfAll;
   }
 }

@@ -3,6 +3,7 @@
 #include "System.hpp"
 #include "components/ScriptBase.hpp"
 
+
 namespace systems
 {
 	class Scripting : public System
@@ -14,6 +15,10 @@ namespace systems
         }
 
         void update(std::chrono::milliseconds elapsedTime);
+        void addEntity(std::shared_ptr<entities::Entity> entity);
+
+      protected:
+        bool isInterested(entities::Entity* entity);
 
       private:
           // TODO: Implement this at a later time
