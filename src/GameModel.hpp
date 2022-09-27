@@ -6,6 +6,7 @@
 #include "systems/Collision.hpp"
 #include "systems/Physics.hpp"
 #include "systems/Scripting.hpp"
+#include "systems/PhysicsScripting.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Event.hpp>
@@ -36,6 +37,7 @@ class GameModel
     std::unique_ptr<systems::Collision> m_collision;
     std::unique_ptr<systems::Physics> m_physics;
     std::unique_ptr<systems::Scripting> m_scripting;
+    std::unique_ptr<systems::PhysicsScripting> m_physicsScripting;
 
     void addEntity(std::shared_ptr<entities::Entity> entity);
     void removeEntity(decltype(entities::Entity().getId()) entityId);

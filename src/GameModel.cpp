@@ -35,6 +35,7 @@ bool GameModel::initialize(sf::Vector2f viewSize, std::shared_ptr<sf::RenderWind
     m_collision = std::make_unique<systems::Collision>();
     m_physics = std::make_unique<systems::Physics>();
     m_scripting = std::make_unique<systems::Scripting>();
+    m_physicsScripting = std::make_unique<systems::PhysicsScripting>();
     
 
     // Create and add entities
@@ -73,6 +74,7 @@ void GameModel::update(const std::chrono::milliseconds elapsedTime, std::shared_
     m_collision->update(elapsedTime);
     m_physics->update(elapsedTime);
     m_scripting->update(elapsedTime);
+    m_physicsScripting->update(elapsedTime);
 
     SoundPlayer::play();
 
@@ -98,6 +100,7 @@ void GameModel::addEntity(std::shared_ptr<entities::Entity> entity)
     m_collision->addEntity(entity);
     m_physics->addEntity(entity);
     m_scripting->addEntity(entity);
+    m_physicsScripting->addEntity(entity);
 }
 
 /// <summary>
@@ -115,4 +118,5 @@ void GameModel::removeEntity(decltype(entities::Entity().getId()) entityId)
     m_collision->removeEntity(entityId);
     m_physics->removeEntity(entityId);
     m_scripting->removeEntity(entityId);
+    m_physicsScripting->removeEntity(entityId);
 }

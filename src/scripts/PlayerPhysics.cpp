@@ -8,9 +8,9 @@ namespace scripts
         {
             auto rigidBody = entity->getComponent<components::RigidBody>();
 
-            if (rigidBody->velocity.y < -5.0f) 
+            if (rigidBody->velocity.y > 30.0f) 
             {
-                rigidBody->velocity.y = -5.0f;    
+                rigidBody->velocity.y = 30.0f;    
             }
             
         }
@@ -35,7 +35,7 @@ namespace scripts
         {
             auto rigidBody = entity->getComponent<components::RigidBody>();
 
-            rigidBody->velocity.y = 5.0f;
+            rigidBody->velocity.y = -30.0f;
         }
 
     }

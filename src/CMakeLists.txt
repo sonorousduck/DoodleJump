@@ -53,7 +53,7 @@ set(SYSTEMS_HEADERS
 	systems/KeyboardInput.hpp
 	systems/AudioSystem.hpp
 	systems/FontRenderer.hpp
-	systems/PlayerPhysics.hpp
+	systems/PhysicsScripting.hpp
 	systems/Collision.hpp
 	systems/Physics.hpp
 	systems/Scripting.hpp
@@ -65,7 +65,7 @@ set(SYSTEMS_SOURCES
 	systems/KeyboardInput.cpp
 	systems/AudioSystem.cpp
 	systems/FontRenderer.cpp
-	systems/PlayerPhysics.cpp
+	systems/PhysicsScripting.cpp
 	systems/Collision.cpp
 	systems/Physics.cpp
 	systems/Scripting.cpp

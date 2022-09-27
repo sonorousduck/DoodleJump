@@ -3,7 +3,7 @@
 
 namespace systems
 {
-    const float Physics::GRAVITY_CONSTANT = 9.81f;
+    const float Physics::GRAVITY_CONSTANT = 9.81f * 4;
 
     void Physics::update(std::chrono::milliseconds elapsedTime)
     {
