@@ -7,6 +7,9 @@
 #include "components/RectangularCollider.hpp"
 #include <components/Input.hpp>
 #include "components/RigidBody.hpp"
+#include <SFML/Graphics/Sprite.hpp>
+#include "components/Sprite.hpp"
+#include <components/Size.hpp>
 
 
 #include <memory>
@@ -16,5 +19,5 @@
 
 namespace entities
 {
-    std::shared_ptr<Entity> createTestEntity(std::string string, sf::Color color, sf::Color outlineColor, std::uint8_t size, sf::Vector2f position, float outlineThickness = 0, float rotation = 0.0f);
+    std::shared_ptr<Entity> createTestEntity(std::string textureFile, sf::Vector2f viewSize, sf::Vector2f position, float size, std::unordered_set<std::shared_ptr<sf::Texture>>& textures);
 }

@@ -39,8 +39,10 @@ bool GameModel::initialize(sf::Vector2f viewSize, std::shared_ptr<sf::RenderWind
     
 
     // Create and add entities
-    addEntity(entities::createLocalPlayer("assets/images/crow.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 1, m_textures));
-    addEntity(entities::createTestEntity("PLATFORM", sf::Color::Red, sf::Color::Green, 40, sf::Vector2f(-1.0f, 1.0f), 1.0f));
+    addEntity(entities::createLocalPlayer("assets/images/DoodleJumper.png", viewSize, sf::Vector2f(-0.25f, 0.0f), 1, m_textures));
+    addEntity(entities::createTestEntity("assets/images/GreenPlatform.png", viewSize, sf::Vector2f(-0.25, 0.0f), 1, m_textures));
+
+    //addEntity(entities::createTestEntity("PLATFORM", sf::Color::Red, sf::Color::Green, 40, sf::Vector2f(-1.0f, 1.0f), 1.0f));
 
 
     return true;
